@@ -1136,7 +1136,7 @@ function doDoubleExp(inVal) {
         }
         createSlider(1, 10, 5, 0.1);
         dynLbl.innerHTML = "노출 정도";
-        document.getElementById("slider").addEventListener("change", function () { doDoubleExp(parseInt(this.value)) });
+        document.getElementById("slider").addEventListener("input", function () { doDoubleExp(parseInt(this.value)) });
     }
 
     if (inVal == NaN || inVal == null)
