@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    background-color: black;
+}
+
+.header {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 8%;
+    /* margin: 10px; */
+    padding: 10px;
+    background: transparent;
+    text-align: center;
+    font-size: 40px;
+    color: whitesmoke;
+}
+
+.menu {
+    position: relative;
+    margin: 5px;
+    padding: 3px;
+    /* float: left; */
+    background: transparent;
+    font-size: 15px;
+    color: whitesmoke;
+
+    border: whitesmoke;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#menuTop {
+    clear: both;
+    top: 0px;
+    height: 6%;
+    width: 100%;
+}
+
+#menuSub {
+    float: right;
+    top: 0px;
+    height: 10%;
+    display: inline-block;
+}
+
+#menuLeft {
+    float: left;
+    /* height: 90%; */
+    /* width: 15%; */
+}
+
+.menuLeftDiv {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#selFileDiv {
+    float: left;
+    background: transparent;
+    margin: 5px 10px 5px 15px;
+    padding: 5px;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+input[type=button] {
+    float: right;
+    background: transparent;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    margin: 6px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: whitesmoke;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    color: #000000;
+    background-color: whitesmoke;
+}
+
+input[type=button1] {
+    background: transparent;
+    display: block;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: whitesmoke;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+input[type=button1]:hover {
+    color: #000000;
+    background-color: whitesmoke;
+}
+
+input[type=buttonPr_L] {
+    margin: none;
+    float: left;
+
+    background: transparent;
+    /* display: inline-block; */
+    padding: 10px 3px 10px 0px;
+    border: 1px solid tomato;
+    border-right: 1px dotted grey;
+    border-radius: 8px 0px 0px 8px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: whitesmoke;
+    text-align: right;
+    transition: all 0.2s;
+    cursor: copy;
+}
+
+input[type=buttonPr_L]:hover {
+    color: #000000;
+    background-color: whitesmoke;
+}
+
+input[type=buttonPr_R] {
+    margin: none;
+    float: left;
+
+    background: transparent;
+    /* display: inline-block; */
+    padding: 10px 0px 10px 3px;
+    border: 1px solid tomato;
+    border-left: none;
+    border-radius: 0px 8px 8px 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: whitesmoke;
+    text-align: left;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+input[type=buttonPr_R]:hover {
+    color: #000000;
+    background-color: whitesmoke;
+}
+
+.basicSlider {
+    /* display: inline-block; */
+    float: right;
+    opacity: 50%;
+}
+
+.basicSlider:hover {
+    background: transparent;
+    opacity: 100%;
+}
+
+table {
+    border: 0px;
+    background: transparent;
+    margin: auto;
+}
+
+#dblExpBtn {
+    border: tomato;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#rgbTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rgbTable thead #redTH {
+    background-color: red
+}
+
+#rgbTable thead #greenTH {
+    background-color: green
+}
+
+#rgbTable thead #blueTH {
+    background-color: blue
+}
+
+#rgbTable td,
+th {
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+}
+
+#rgbTable thead th {
+    height: 5px;
+    width: 9px;
+}
+
+#rgbTable td {
+    height: 15px;
+    width: 30px;
+}
+
+#subMenuTable {
+    float: right;
+    /* border: greenyellow;
+    border-style: solid;
+    border-width: 1px; */
+}
+
+#dynSliderTD {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5px;
+}
+
+.rgbSlider {
+    width: 20%;
+    float: left;
+    -webkit-appearance: slider-vertical;
+}
+
+
+.selectMenu {
+    padding: 10px;
+    float: right;
+}
+
+.centralDiv {
+    float: left;
+    /* border: tomato;
+    border-style: solid;
+    border-width: 1px; */
+}
+
+.canvasHolder {
+    top: 0px;
+    display: block;
+    /* margin: 10px; */
+    padding: 10px;
+    height: 75%;
+    /* width: 80%; */
+
+    /* border: gold;
+    border-style: solid;
+    border-width: 2px; */
+}
+
+#canvas {
+    display: block;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.footer {
+    clear: both;
+    bottom: 0;
+    padding: 5px;
+    background: transparent;
+    text-align: center;
+    font-size: 12px;
+    color: whitesmoke;
+
+    /* border: teal;
+    border-style: solid;
+    border-width: 2px; */
+}
