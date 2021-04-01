@@ -61,6 +61,7 @@ HTML5/CSS/Javascript를 익히며 진행한 프로젝트로, 계산과 메모리
 
 ### 효과 구현
 [![이중노출01](/images/doubleExp1.png)](https://youtu.be/qOFR6IDiDWo)
+이미지 링크가 작동 안 하면 [여기를 눌러주세요](https://youtu.be/qOFR6IDiDWo).
 
 ### pseudocode
 ![이중노출 pseudocode](/images/doubleExp_pseudocode.png)
