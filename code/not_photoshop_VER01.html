@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 미니프로젝트: 영상처리 UI</title>
+    <link rel="stylesheet" href="not_photoshop_VER01.css">
+</head>
+
+<body onload="init()">
+    <header class="header">영상처리 프로젝트</header>
+    <section class="menu" id="menuTop">
+        <div id="selFileDiv">
+            <input type="file" id="selectFile" onclick="this.value=null;">
+            <label style="font-size: 15px;">RAW, JPG, JPEG, PNG 파일 가능</label>
+        </div>
+        <div id="testBtnDiv">
+            <!-- <input type="button" id="testBtn" value="테스팅" onclick="canvasAreaME('neg')" style="display: inline-block;"> -->
+            <!-- <input type="button" id="testBtn2" value="테스팅2" onclick="canvasAreaME('gray')" style="display: inline-block;"> -->
+        </div>
+        <div id="dwnldBtnDiv">
+            <input type="button" id="downloadBtn" value="이미지 다운받기" onclick="downloadImg()">
+        </div>
+    </section>
+    <section class="menu" id="menuLeft">
+        <div class="menuLeftDiv" id="accumDiv">
+            <input type="button1" id="accumBtn" value="변화 저장" onclick="saveChange()">
+        </div>
+        <div class="menuLeftDiv" id="discardChngDiv">
+            <input type="button1" id="discardChngBtn" value="변화 취소" onclick="discardChange()">
+        </div>
+        <div class="menuLeftDiv" id="resetDiv">
+            <input type="button1" id="resetAllBtn" value="처음으로" onclick="resetToOrg()">
+        </div>
+        <hr>
+        <div class="menuLeftDiv" id="brightDiv">
+            <label id="brgtLbl">밝기 조정</label>
+            <input class="basicSlider" type="range" name="밝기 조정" id="brgtSlider" min="-200" max="200" value="0" step="5"
+                oninput="adjBrightness(parseInt(this.value))">
+        </div>
+        <div class="menuLeftDiv" id="contrastDiv">
+            <label id="contrastLbl">컨트래스트 조정</label>
+            <input class="basicSlider" type="range" name="컨트래스트 조정" id="contrastSlider" min="-200" max="200" value="0"
+                step="5" oninput="adjContrast(parseInt(this.value))">
+        </div>
+        <div class="menuLeftDiv" id="transpDiv">
+            <label id="transpLbl">투명도 조정</label>
+            <input class="basicSlider" type="range" name="투명도 조정" id="transpSlider" min="-255" max="0" value="0"
+                step="5" oninput="adjTransparency(parseInt(this.value))">
+        </div>
+        <hr>
+        <div class="menuLeftDiv" id="rgbDiv">
+            <table class="table" id="rgbTable">
+                <thead>
+                    <tr>
+                        <th id="redTH">R</th>
+                        <th id="greenTH">G</th>
+                        <th id="blueTH">B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="rgbSlider" type="range" id="adjRSlider" min="-255" max="255" value="0"
+                                step="5" orient="vertical" oninput="adjRGB(parseInt(this.value), 'R')"></td>
+                        <td><input class="rgbSlider" type="range" id="adjGSlider" min="-255" max="255" value="0"
+                                step="5" orient="vertical" oninput="adjRGB(parseInt(this.value), 'G')"></td>
+                        <td><input class="rgbSlider" type="range" id="adjBSlider" min="-255" max="255" value="0"
+                                step="5" orient="vertical" oninput="adjRGB(parseInt(this.value), 'B')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="menuLeftDiv" id="geomDiv">
+            <table class="table" id="geomTable">
+                <tr>
+                    <td><input type="button" value="축소" id="decBtn" onclick="toDecrease()"></td>
+                    <td><input type="button" value="확대" id="incBtn" onclick="toIncrease()"></td>
+                    <td><input type="button" value="회전" id="rotBtn" onclick="toRotate()"></td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div class="menuLeftDiv" id="geomDiv">
+            <table class="table" id="mirrorTable">
+                <thead>
+                    <th>
+                    <td>반전</td>
+                    </th>
+                </thead>
+                <tr>
+                    <td><input type="button" value="좌우" onclick="toMirrorLR()"></td>
+                    <td><input type="button" value="상하" onclick="toMirrorTB()"></td>
+                    <td><input type="button" value="대각선" onclick="toMirrorDiag()"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <div class="centralDiv" id="centralDiv">
+        <section class="menu" id="menuSub">
+            <table class="table" id="subMenuTable">
+                <tbody>
+                    <tr>
+                        <td id="dynSliderTD"><label id="dynLbl"></label></td>
+                        <td><input type="button" value="세피아" onclick="toSepia()"></td>
+                        <td><input type="button" value="모노톤" onclick="toGrayscaleWeighted()"></td>
+                        <td><input type="button" value="흑백" onclick="toBW()"></td>
+                        <td><input type="button" value="네거티브" onclick="toNegative()"></td>
+                        <td><input type="buttonPr_L" value="이중노출 준비" id="ldDblExpBtn" onclick="loadDoubleExp()">
+                            <input type="buttonPr_R" value="진행" id="doDblExpBtn" onclick="doDoubleExp()">
+                        </td>
+                        <td><input type="button" value="영역반전" id="areaNegBtn" onclick="canvasAreaME('neg')"></td>
+                        <td><input type="button" value="영역모노톤" id="areaGrayBtn" onclick="canvasAreaME('gray')"></td>
+                        <td><input type="button" value="영역흑백" id="areaBwBtn" onclick="canvasAreaME('bw')"></td>
+                        <td>
+                            <div class="selectMenu">
+                                <select name="히스토그램 작업" id="histForm" onchange="selHist(this.value)">
+                                    <option value="0">히스토그램</option>
+                                    <option value="11">히스토그램 스트레칭</option>
+                                    <option value="12">엔드-인 탐색</option>
+                                    <option value="13">평활화</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="selectMenu">
+                                <select name="화소 영역 처리 작업" id="areaForm" onchange="selArea(this.value)">
+                                    <option value="0">화소 영역 처리</option>
+                                    <option value="21">엠보싱</option>
+                                    <option value="22">블러링</option>
+                                    <option value="23">샤프닝1</option>
+                                    <option value="24">샤프닝2</option>
+                                    <option value="25">가우시안 스무딩</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="selectMenu">
+                                <select name="에지 검출" id="edgeDetForm" onchange="selEdgeDet(this.value)">
+                                    <option value="0">에지 검출</option>
+                                    <option value="31">이동과 차분</option>
+                                    <option value="32">로버츠</option>
+                                    <option value="33">프리윗</option>
+                                    <option value="34">소벨</option>
+                                    <option value="35">라플라시안</option>
+                                    <option value="36">LoG 5x5</option>
+                                    <option value="37">DoG 7x7</option>
+                                    <option value="38">DoG 9x9</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="canvasHolder" id="canvasHolder">
+            <div id="canvasDiv">
+                <canvas id="mainCanvas" style="background-color: transparent;"></canvas>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">영상처리 미니프로젝트 ver.1</footer>
+    <script src="not_photoshop_VER01.js"></script>
+</body>
+
+</html>
