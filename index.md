@@ -57,7 +57,8 @@ HTML5/CSS/Javascript를 익히며 진행한 프로젝트로, 계산과 메모리
 이메일: hisiel@naver.com
 
 <br><br><br><br><br>
-
+### [테스트 중](/doubleExposure.md)
+<br><br><br>
 
 # 이중 노출
 (필름 카메라의 경우에는) 이미 찍은 필름을 되감아 노출을 다시 시켜 이미지 두 개가 겹치게 하는 기법.
