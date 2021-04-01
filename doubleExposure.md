@@ -3,3 +3,6 @@
 
 ### 효과 구현
 ![이중노출01](/images/doubleExp1.png)(https://youtu.be/qOFR6IDiDWo)
+
+### pseudocode
+![이중노출 pseudocode](/images/doubleExp_pseudocode.png)
