@@ -19,7 +19,7 @@ HTML5/CSS/Javascript를 익히며 진행한 프로젝트로, 계산과 메모리
   * 투명도 조정 (알파 채널 활용)
   * 명암대비(콘트라스트) 조정
   * 필터 효과: 세피아, 모노톤(그레이스케일), 반전(네거티브 필름)
-  * [이중 노출 효과](#이중-노출): 기본적인 이중 노출 효과로 두 개의 이미지를 입력받아 작업 (두 이미지의 크기는 서로 달라도 됨)
+  * [이중 노출 효과](/doubleExposure.md): 기본적인 이중 노출 효과로 두 개의 이미지를 입력받아 작업 (두 이미지의 크기는 서로 달라도 됨)
 * 히스토그램과 화소 점 처리
   * 히스토그램 스트레칭
   * 엔드-인 탐색
@@ -56,16 +56,4 @@ HTML5/CSS/Javascript를 익히며 진행한 프로젝트로, 계산과 메모리
 ### 버그 보고, 질문, 건의 사항, 조언 환영합니다!
 이메일: hisiel@naver.com
 
-<br><br><br><br><br>
-### [테스트 중](/doubleExposure.md)
-<br><br><br>
 
-# 이중 노출
-(필름 카메라의 경우에는) 이미 찍은 필름을 되감아 노출을 다시 시켜 이미지 두 개가 겹치게 하는 기법.
-
-### 효과 구현
-[![이중노출01](/images/doubleExp1.png)](https://youtu.be/qOFR6IDiDWo)
-이미지 링크가 작동 안 하면 [여기를 눌러주세요](https://youtu.be/qOFR6IDiDWo).
-
-### pseudocode
-![이중노출 pseudocode](/images/doubleExp_pseudocode.png)
